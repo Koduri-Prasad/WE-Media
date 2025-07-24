@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WE Media</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Google Fonts for Custom Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="mainHeader">
+    <img src="images/logo.png" class="logo" alt="Logo"/>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home" class="navlink">Home</a></li>
+        <li><a href="#about" class="navlink">About</a></li>
+        <li><a href="#events" class="navlink">Events</a></li>
+        <li><a href="#ourwork" class="navlink">Our Work</a></li>
+        <li><a href="#quote" class="navlink">Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME HERO -->
+  <section class="hero" id="home">
+    <div class="home-overlay">
+      <div class="center-title">WE MEDIA</div>
+      <div class="subtitle">We Create. We Capture. We Connect.</div>
+    </div>
+    <div class="slideshow">
+      <img src="images/1.jpg" class="slide active" />
+      <img src="images/2.jpg" class="slide" />
+      <img src="images/3.jpg" class="slide" />
+      <img src="images/4.jpg" class="slide" />
+      <img src="images/5.jpg" class="slide" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="side-by-side about-section">
+    <div class="side-left">
+      <h2>About Us</h2>
+      <p>
+        WE Media is a leading digital media company dedicated to creating compelling content and innovative solutions.
+        Our team of creative professionals brings years of experience in storytelling, design, and digital marketing to help brands connect with their audiences in meaningful ways.
+      </p>
+    </div>
+    <div class="side-right">
+      <img src="images/about.jpg" alt="Team Photo" class="side-img"/>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="side-by-side events-section">
+    <div class="side-left">
+      <h2>Events</h2>
+      <ul class="events-list">
+        <li>Wedding & Engagement</li>
+        <li>Birthday Parties</li>
+        <li>Baby Shoot & Baby Showers</li>
+        <li>Outdoor Shoots</li>
+        <li>Corporate Events</li>
+        <li>Conferences & Seminars</li>
+      </ul>
+      <p>
+        We specialize in capturing all your event moments with comprehensive media coverage, live streaming, and beautiful post-event stories. Your special day, our lens.
+      </p>
+    </div>
+    <div class="side-right">
+      <img src="images/events.jpg" alt="Event Highlights" class="side-img"/>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section id="ourwork" class="side-by-side works-section">
+    <div>
+      <h2>Our Work</h2>
+      <div class="works-list">
+        <a href="work-wedding.html" class="work-category">
+          <img src="images/wedding/1.jpg" alt="Go to Wedding Gallery"><span>Wedding Pics</span>
+        </a>
+        <a href="work-portfolio.html" class="work-category">
+          <img src="images/portfolio/1.jpg" alt="Go to Portfolio Gallery"><span>Portfolio Pics</span>
+        </a>
+        <a href="work-baby.html" class="work-category">
+          <img src="images/baby/1.jpg" alt="Go to Baby Gallery"><span>Baby Pics</span>
+        </a>
+        <a href="work-outdoor.html" class="work-category">
+          <img src="images/outdoor/1.jpg" alt="Go to Outdoor Gallery"><span>Outdoor Pics</span>
+        </a>
+        <a href="work-birthday.html" class="work-category">
+          <img src="images/birthday/1.jpg" alt="Go to Birthday Gallery"><span>Birthday Pics</span>
+        </a>
+        <a href="work-corporate.html" class="work-category">
+          <img src="images/corporate/1.jpg" alt="Go to Corporate Gallery"><span>Corporate Pics</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section id="quote" class="quote-section">
+    <h2>Get a Quote</h2>
+
+    <form id="quoteForm">
+      <!-- Event Details -->
+      <label for="eventType">Event Type:</label>
+      <select id="eventType" name="eventType" required>
+        <option value="">--Select Event--</option>
+        <option value="Marriage">Marriage</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Family Get Together">Family Get Together</option>
+        <option value="Corporate Event">Corporate Event</option>
+      </select>
+
+      <label for="subEvent">Sub Events (Optional):</label>
+      <input type="text" id="subEvent" name="subEvent" placeholder="e.g., Reception, Mehendi" />
+
+      <label for="eventDate">Event Date:</label>
+      <input type="date" id="eventDate" name="eventDate" required />
+
+      <label for="days">Number of Days:</label>
+      <select id="days" name="days" required>
+        <option value="">--Select Days--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <!-- Day-wise workforce (JS will inject here) -->
+      <div id="daysContainer"></div>
+
+      <!-- Extras -->
+      <fieldset>
+        <legend>Extras:</legend>
+        <label><input type="checkbox" name="extras" value="LED Wall"> LED Wall (8x12)</label>
+      </fieldset>
+
+      <!-- Output -->
+      <fieldset>
+        <legend>Output Required:</legend>
+        <label><input type="checkbox" name="output" value="Highlights"> Highlights</label>
+        <label><input type="checkbox" name="output" value="Full"> Full Length</label>
+        <label><input type="checkbox" name="output" value="Album"> Albums</label>
+      </fieldset>
+
+      <button type="submit">Get Personalised Quote (₹1000)</button>
+    </form>
+  </section>
+
+  <div class="contact-icons">
+    <a href="https://www.youtube.com/@YourChannel" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"> YouTube
+    </a>
+    <a href="https://www.instagram.com/yourusername/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"> Instagram
+    </a>
+    <a href="tel:+919876543210">
+      <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone"> +91 8184857257
+    </a>
+    <a href="mailto:youremail@example.com">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"> webyvenkat@gmail.com
+    </a>
+  </div>
+
+  <footer>© 2025 WE Media by Venkat</footer>
+  <script src="script.js"></script>
+</body>
+</html>
