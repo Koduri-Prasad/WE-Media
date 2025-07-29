@@ -1,22 +1,26 @@
-
 // Slideshow functionality
 let slides = document.querySelectorAll('.slide');
 let index = 0;
-
 function showNextSlide() {
   slides[index].classList.remove('active');
   index = (index + 1) % slides.length;
   slides[index].classList.add('active');
 }
-
 setInterval(showNextSlide, 3000);
 
-// Team requirements functionality
 document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scroll for Get a Quote nav
+  const navGetAQuote = document.getElementById('navGetAQuote');
+  if (navGetAQuote) {
+    navGetAQuote.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('getaquote').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // --- DAY-WISE WORKFORCE SECTION (REPLACED WITH YOUR REQUESTED LOGIC) ---
   const daysSelect = document.getElementById('days');
   const daysContainer = document.getElementById('daysContainer');
-  
-  // Team member types
   const teamTypes = [
     { id: 'photographer', label: 'Photographer' },
     { id: 'videographer', label: 'Videographer' },
@@ -25,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'drone', label: 'Drone Operator' }
   ];
 
-  // Create team selector for a specific day
   function createTeamSelector(dayNumber) {
     const daySection = document.createElement('fieldset');
     daySection.className = 'day-workforce-section';
@@ -49,32 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return daySection;
   }
 
-  // Handle days selection change
-  daysSelect.addEventListener('change', () => {
-    const numberOfDays = parseInt(daysSelect.value) || 0;
-    daysContainer.innerHTML = ''; // Clear existing sections
-
-    // Create a section for each day
-    for (let i = 1; i <= numberOfDays; i++) {
-      const daySection = createTeamSelector(i);
-      daysContainer.appendChild(daySection);
-    }
-
-    // Add quantity button handlers
-    setupQuantityButtons();
-    updateHighlightsPrice(); // Update price when days change
-  });
-
-  // Setup quantity button handlers
   function setupQuantityButtons() {
     const quantityButtons = document.querySelectorAll('.quantity-btn');
-    
     quantityButtons.forEach(button => {
       button.addEventListener('click', () => {
         const type = button.dataset.type;
         const input = document.getElementById(type);
         const currentValue = parseInt(input.value);
-        
         if (button.classList.contains('plus') && currentValue < 10) {
           input.value = currentValue + 1;
         } else if (button.classList.contains('minus') && currentValue > 0) {
@@ -84,167 +68,93 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Check requirements and update output options
-  function updateOutputOptions() {
+  daysSelect.addEventListener('change', () => {
     const numberOfDays = parseInt(daysSelect.value) || 0;
-    let totalCinematographers = 0;
-
-    // Count cinematographers across all days
+    daysContainer.innerHTML = '';
     for (let i = 1; i <= numberOfDays; i++) {
-      const cinematographerInput = document.getElementById(`cinematographer_day${i}`);
-      if (cinematographerInput) {
-        totalCinematographers += parseInt(cinematographerInput.value) || 0;
-      }
+      const daySection = createTeamSelector(i);
+      daysContainer.appendChild(daySection);
     }
-
-    const highlightsCheckbox = document.getElementById('highlightsCheckbox');
-    const highlightsInfo = document.getElementById('highlightsInfo');
-    
-    // Update highlights availability
-    if (totalCinematographers > 0) {
-      highlightsCheckbox.disabled = false;
-      highlightsInfo.textContent = '';
-    } else {
-      highlightsInfo.textContent = 'Please add cinematographer(s) for highlights';
-      highlightsCheckbox.checked = false;
-      highlightsCheckbox.disabled = true;
-    }
-
-    // Update full length availability
-    const fullLengthCheckbox = document.getElementById('fullLengthCheckbox');
-    const fullLengthInfo = document.getElementById('fullLengthInfo');
-    
-    if (numberOfDays > 0) {
-      fullLengthCheckbox.disabled = false;
-      fullLengthInfo.textContent = '';
-    } else {
-      fullLengthInfo.textContent = 'Please select number of days';
-      fullLengthCheckbox.checked = false;
-      fullLengthCheckbox.disabled = true;
-    }
-  }
-
-  // Setup album quantity handlers
-  function setupAlbumQuantityHandlers() {
-    const albumQuantityInput = document.getElementById('albumQuantity');
-    const albumButtons = document.querySelectorAll('.quantity-btn[data-type="albums"]');
-    const albumCheckbox = document.getElementById('albumCheckbox');
-    
-    albumButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const currentValue = parseInt(albumQuantityInput.value) || 0;
-        
-        if (button.classList.contains('plus') && currentValue < 10) {
-          albumQuantityInput.value = currentValue + 1;
-          albumCheckbox.checked = true;
-        } else if (button.classList.contains('minus') && currentValue > 0) {
-          albumQuantityInput.value = currentValue - 1;
-          if (currentValue === 1) {
-            albumCheckbox.checked = false;
-          }
-        }
-      });
-    });
-
-    albumCheckbox.addEventListener('change', () => {
-      if (!albumCheckbox.checked) {
-        albumQuantityInput.value = 0;
-      } else if (albumQuantityInput.value === '0') {
-        albumQuantityInput.value = 1;
-      }
-    });
-  }
-
-  // Add event listeners for output updates
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('quantity-btn') && 
-        (e.target.dataset.type.includes('cinematographer') || 
-         e.target.dataset.type === 'albums')) {
-      updateOutputOptions();
-    }
+    setupQuantityButtons();
   });
 
-  // Initialize album quantity handlers
-  setupAlbumQuantityHandlers();
-
-  // Google Sign In functionality
-  function initializeGoogleSignIn() {
-    const googleSignInBtn = document.getElementById('googleSignInBtn');
-    const userProfile = document.getElementById('userProfile');
-    const whatsappSection = document.getElementById('whatsappSection');
-    const submitQuoteBtn = document.getElementById('submitQuote');
-    const whatsappInput = document.getElementById('whatsapp');
-
-    // Load Google Sign-In API
-    gapi.load('auth2', () => {
-      gapi.auth2.init({
-        client_id: 'YOUR_GOOGLE_CLIENT_ID' // Replace with your Google Client ID
-      }).then(auth2 => {
-        googleSignInBtn.addEventListener('click', () => {
-          auth2.signIn().then(googleUser => {
-            const profile = googleUser.getBasicProfile();
-            
-            // Update UI with user info
-            document.getElementById('userPhoto').src = profile.getImageUrl();
-            document.getElementById('userName').textContent = profile.getName();
-            document.getElementById('userEmail').textContent = profile.getEmail();
-            
-            // Show/hide elements
-            googleSignInBtn.style.display = 'none';
-            userProfile.style.display = 'flex';
-            whatsappSection.style.display = 'block';
-            
-            // Enable submit button if WhatsApp number is valid
-            validateForm();
-          });
-        });
-      });
+  // Album quantity plus/minus
+  document.querySelectorAll('.quantity-btn[data-type="albums"]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const input = document.getElementById('albumQuantity');
+      let val = parseInt(input.value, 10);
+      if (this.classList.contains('plus') && val < 10) input.value = val + 1;
+      if (this.classList.contains('minus') && val > 0) input.value = val - 1;
     });
+  });
 
-    // Validate WhatsApp number
-    whatsappInput.addEventListener('input', () => {
-      const isValid = /^[0-9]{10}$/.test(whatsappInput.value);
-      validateForm();
+  // Modal logic
+  const openQuoteModalBtn = document.getElementById('openQuoteModal');
+  const openCallModalBtn = document.getElementById('openCallModal');
+  const contactModal = document.getElementById('contactModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalContactForm = document.getElementById('modalContactForm');
+  let modalType = 'quote';
+
+  if (openQuoteModalBtn) {
+    openQuoteModalBtn.addEventListener('click', () => {
+      modalType = 'quote';
+      modalTitle.textContent = 'Get a Quote - Contact Details';
+      contactModal.style.display = 'flex';
     });
-
-    function validateForm() {
-      const isWhatsappValid = /^[0-9]{10}$/.test(whatsappInput.value);
-      const isUserSignedIn = userProfile.style.display === 'flex';
-      submitQuoteBtn.disabled = !(isWhatsappValid && isUserSignedIn);
-    }
+  }
+  if (openCallModalBtn) {
+    openCallModalBtn.addEventListener('click', () => {
+      modalType = 'call';
+      modalTitle.textContent = 'Request a Call - Contact Details';
+      contactModal.style.display = 'flex';
+    });
+  }
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+      contactModal.style.display = 'none';
+      modalContactForm.reset();
+    });
+  }
+  if (contactModal) {
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.style.display = 'none';
+        modalContactForm.reset();
+      }
+    });
   }
 
-  // Initialize Google Sign In when the API is loaded
-  window.onload = function() {
-    initializeGoogleSignIn();
-  };
-
-  // Handle form submission
-  document.getElementById('quoteForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Collect form data and send to your backend
-    const formData = {
-      eventType: document.getElementById('eventType').value,
-      subEvent: document.getElementById('subEvent').value,
-      eventDate: document.getElementById('eventDate').value,
-      days: document.getElementById('days').value,
-      teamRequirements: [], // Collect team requirements for each day
-      extras: Array.from(document.querySelectorAll('input[name="extras"]:checked')).map(cb => cb.value),
-      outputs: {
-        highlights: document.getElementById('highlightsCheckbox').checked,
-        fullLength: document.getElementById('fullLengthCheckbox').checked,
-        albums: document.getElementById('albumCheckbox').checked ? 
-                parseInt(document.getElementById('albumQuantity').value) : 0
-      },
-      contact: {
-        email: document.getElementById('userEmail').textContent,
-        whatsapp: document.getElementById('whatsapp').value
+  if (modalContactForm) {
+    modalContactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('modalName').value.trim();
+      const email = document.getElementById('modalEmail').value.trim();
+      const phone = document.getElementById('modalPhone').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
       }
-    };
+      if (!validateEmail(email)) {
+        alert('Please enter a valid email.');
+        return;
+      }
+      if (!/^[0-9]{10}$/.test(phone)) {
+        alert('Please enter a valid 10 digit phone number.');
+        return;
+      }
+      if (modalType === 'quote') {
+        alert('Thank you! We will contact you soon with your quote.');
+      } else {
+        alert('Thank you! We will call you soon.');
+      }
+      contactModal.style.display = 'none';
+      modalContactForm.reset();
+    });
+  }
 
-    // Here you would send the formData to your backend
-    console.log('Form submitted:', formData);
-    // Add your API call here
-  });
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 });
