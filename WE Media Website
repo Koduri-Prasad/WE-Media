@@ -1,0 +1,55 @@
+# WE Media - Photography Website
+
+**WE Media** is a fully responsive photography portfolio and studio booking website designed to showcase photography categories, event services, sample work, and a dynamic quotation form. Built with HTML, CSS, and JavaScript.
+
+🔗 [Live Demo](https://koduri-prasad.github.io/WE-Media/)
+
+---
+
+##  Features
+
+- Full-screen background slideshow on homepage
+- Transparent navigation bar with anchor links
+- Sections: Home, About, Events, Our Work, Get a Quote, Contact
+- Sample gallery categories like Wedding, Outdoor, Corporate, etc.
+- "Get a Quote" form with:
+  - Event Type selection
+  - Dynamic day-wise workforce planning
+  - Optional add-ons (LED Wall, Live Stream, Albums, etc.)
+  - Google Sign-In & WhatsApp number input
+- Clean and responsive design for all devices
+
+---
+
+##  Tech Stack
+
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Deployment:** GitHub Pages
+- **Fonts & Icons:** Google Fonts, Flaticon
+- **Cloud Integration:** Google Sign-In (basic setup)
+- **Storage:** GitHub for image & file hosting
+
+---
+
+##  Author
+
+- **Name:** Prasad Koduri
+- **LinkedIn:** [Prasad Koduri](https://www.linkedin.com/in/prasad-koduri-ab19a6244/)
+- **GitHub:** [koduri-prasad](https://github.com/koduri-prasad)
+
+---
+
+##  Contact
+
+For business inquiries or photography bookings:
+
+ +91 81848 57257  
+ webyvenkat@gmail.com  
+ Instagram: [@we_media__](https://www.instagram.com/we_media__)  
+ YouTube: [Team ABC Studios](https://youtube.com/@teamabcstudios5183)
+
+---
+
+##  License
+
+This project is open-source and available under the [MIT License](LICENSE).
