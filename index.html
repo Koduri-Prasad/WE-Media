@@ -5,19 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WE Media</title>
   <link rel="stylesheet" href="style.css"/>
-  <!-- Google Fonts for Custom Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header id="mainHeader">
-    <img src="images/logo.png" class="logo" alt="Logo"/>
+    <img src="https://www.webyvenkat.in/webyvenkat.png" class="logo" alt="Logo"/>
     <nav class="navbar">
       <ul>
         <li><a href="#home" class="navlink">Home</a></li>
-        <li><a href="#about" class="navlink">About</a></li>
-        <li><a href="#events" class="navlink">Events</a></li>
-        <li><a href="#ourworks" class="navlink">Our Works</a></li>
-        <li><a href="#GetaQuote" class="navlink">Get a Quote</a></li>
+        <li><a href="#about" class="navlink">About us</a></li>
+        <li><a href="#events" class="navlink">Coverages</a></li>
+        <li><a href="#ourwork" class="navlink">Our Work</a></li>
+        <li><a href="#getaquote" class="navlink" id="navGetAQuote">Get a Quote</a></li>
       </ul>
     </nav>
   </header>
@@ -25,15 +24,15 @@
   <!-- HOME HERO -->
   <section class="hero" id="home">
     <div class="home-overlay">
-      <div class="center-title">WE</div>
+      <div class="center-title">WE MEDIA</div>
       <div class="subtitle">We Create. We Capture. We Connect.</div>
     </div>
     <div class="slideshow">
-      <img src="images/1.jpg" class="slide active" />
-      <img src="images/2.jpg" class="slide" />
-      <img src="images/3.jpg" class="slide" />
-      <img src="images/4.jpg" class="slide" />
-      <img src="images/5.jpg" class="slide" />
+      <img src="https://www.webyvenkat.in/image1.webp" class="slide active" />
+      <img src="https://www.webyvenkat.in/image2.webp" class="slide" />
+      <img src="https://www.webyvenkat.in/image3.webp" class="slide" />
+      <img src="https://www.webyvenkat.in/image4.webp" class="slide" />
+      <img src="https://www.webyvenkat.in/image5.webp" class="slide" />
     </div>
   </section>
 
@@ -47,14 +46,14 @@
       </p>
     </div>
     <div class="side-right">
-      <img src="images/about.jpg" alt="Team Photo" class="side-img"/>
+      <img src="https://i.postimg.cc/cHyDxGFq/1744725456367-1.jpg" alt="Team Photo" class="side-img"/>
     </div>
   </section>
 
   <!-- EVENTS -->
   <section id="events" class="side-by-side events-section">
     <div class="side-left">
-      <h2>Events</h2>
+      <h2>Coverages</h2>
       <ul class="events-list">
         <li>Wedding & Engagement</li>
         <li>Birthday Parties</li>
@@ -68,7 +67,7 @@
       </p>
     </div>
     <div class="side-right">
-      <img src="images/events.jpg" alt="Event Highlights" class="side-img"/>
+      <img src="https://i.postimg.cc/QNq63P5P/IMG-20250729-170024.jpg" alt="Event Highlights" class="side-img"/>
     </div>
   </section>
 
@@ -78,31 +77,27 @@
       <h2>Our Work</h2>
       <div class="works-list">
         <a href="work-wedding.html" class="work-category">
-          <img src="images/wedding/1.jpg" alt="Go to Wedding Gallery"><span>Wedding Pics</span>
+          <img src="https://i.postimg.cc/wTXFVrxF/Whats-App-Image-2025-07-29-at-5-34-15-PM.jpg" alt="Go to Wedding Gallery"><span>Wedding</span>
         </a>
         <a href="work-portfolio.html" class="work-category">
-          <img src="images/portfolio/1.jpg" alt="Go to Portfolio Gallery"><span>Portfolio Pics</span>
-        </a>
-        <a href="work-baby.html" class="work-category">
-          <img src="images/baby/1.jpg" alt="Go to Baby Gallery"><span>Baby Pics</span>
+          <img src="https://i.postimg.cc/P5vzPFpd/ABC01049.jpg" alt="Go to Portfolio Gallery"><span>Portfolio</span>
         </a>
         <a href="work-outdoor.html" class="work-category">
-          <img src="images/outdoor/1.jpg" alt="Go to Outdoor Gallery"><span>Outdoor Pics</span>
+          <img src="https://i.postimg.cc/rFrKW6JZ/WE-B-R-Outdoor-20.jpg" alt="Go to Outdoor Gallery"><span>Outdoor</span>
         </a>
         <a href="work-birthday.html" class="work-category">
-          <img src="images/birthday/1.jpg" alt="Go to Birthday Gallery"><span>Birthday Pics</span>
+          <img src="https://i.postimg.cc/GpYQSSdX/OUTDOOR-096-resize.jpg" alt="Go to Birthday Gallery"><span>Birthday</span>
         </a>
         <a href="work-corporate.html" class="work-category">
-          <img src="images/corporate/1.jpg" alt="Go to Corporate Gallery"><span>Corporate Pics</span>
+          <img src="https://i.postimg.cc/7YZy8SC3/Whats-App-Image-2025-07-29-at-5-29-15-PM.jpg" alt="Go to Corporate Gallery"><span>Corporate</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- QUOTE -->
-  <section id="quote" class="quote-section">
+  <section id="getaquote" class="quote-section">
     <h2>Get a Quote</h2>
-
     <form id="quoteForm">
       <!-- Event Details -->
       <label for="eventType">Event Type:</label>
@@ -136,37 +131,101 @@
       <!-- Extras -->
       <fieldset>
         <legend>Extras:</legend>
-        <label><input type="checkbox" name="extras" value="LED Wall"> LED Wall (8x12)</label>
+        <div class="extras-grid">
+          <label><input type="checkbox" name="extras" value="LED Wall"> LED Wall (8x12)</label>
+          <label><input type="checkbox" name="extras" value="Live Stream"> Live Stream</label>
+          <label><input type="checkbox" name="extras" value="iPhone Photo"> iPhone Photographer</label>
+          <label><input type="checkbox" name="extras" value="iPhone Video"> iPhone Videographer</label>
+        </div>
       </fieldset>
 
       <!-- Output -->
       <fieldset>
         <legend>Output Required:</legend>
-        <label><input type="checkbox" name="output" value="Highlights"> Highlights</label>
-        <label><input type="checkbox" name="output" value="Full"> Full Length</label>
-        <label><input type="checkbox" name="output" value="Album"> Albums</label>
+        <div class="output-grid">
+          <div class="output-item">
+            <label><input type="checkbox" name="output" value="Highlights" id="highlightsCheckbox"> Highlights</label>
+            <span class="output-info">Approx. 3-3.5 mins per day of cinematography</span>
+            <div class="hidden-info" id="highlightsInfo"></div>
+          </div>
+          <div class="output-item">
+            <label><input type="checkbox" name="output" value="Full" id="fullLengthCheckbox"> Full Length</label>
+            <span class="output-info">Approx. 1 hour per day of event coverage</span>
+            <div class="hidden-info" id="fullLengthInfo"></div>
+          </div>
+          <div class="output-item">
+            <label><input type="checkbox" name="output" value="Album" id="albumCheckbox"> Photo Albums</label>
+            <div class="album-quantity-wrapper">
+              <div class="quantity-selector">
+                <button type="button" class="quantity-btn minus" data-type="albums">−</button>
+                <input type="number" id="albumQuantity" name="albumQuantity" value="0" min="0" max="10" readonly>
+                <button type="button" class="quantity-btn plus" data-type="albums">+</button>
+              </div>
+              <span class="output-info">Each album contains 25 sheets</span>
+            </div>
+          </div>
+        </div>
       </fieldset>
 
-      <button type="submit">Get Personalised Quote (₹1000)</button>
+      <!-- BUTTONS AT BOTTOM -->
+      <div class="quote-btn-row">
+        <button type="button" class="quote-toggle-btn" id="openQuoteModal">Get a Quote</button>
+        <button type="button" class="quote-toggle-btn" id="openCallModal">Request a Call</button>
+      </div>
     </form>
   </section>
 
-  <div class="contact-icons">
-    <a href="https://www.youtube.com/@YourChannel" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"> YouTube
-    </a>
-    <a href="https://www.instagram.com/yourusername/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"> Instagram
-    </a>
-    <a href="tel:+919876543210">
-      <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone"> +91 8184857257
-    </a>
-    <a href="mailto:youremail@example.com">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"> webyvenkat@gmail.com
-    </a>
+  <!-- MODAL FOR CONTACT DETAILS -->
+  <div id="contactModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <h3 id="modalTitle">Contact Details</h3>
+      <form id="modalContactForm">
+        <label for="modalName">Name:</label>
+        <input type="text" id="modalName" name="modalName" required placeholder="Your Name" />
+        <label for="modalEmail">Email:</label>
+        <input type="email" id="modalEmail" name="modalEmail" required placeholder="your@email.com" />
+        <label for="modalPhone">Phone Number:</label>
+        <input type="tel" id="modalPhone" name="modalPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10 digit number" />
+        <button type="submit" id="modalSubmitBtn">Submit</button>
+      </form>
+    </div>
   </div>
 
-  <footer>© 2025 WE Media by Venkat</footer>
-  <script src="script.js"></script>
+  <div class="footer-socials">
+  <div class="footer-socials-title">Follow Us</div>
+  <div class="footer-socials-list">
+    <a href="https://youtube.com/@teamabcstudios5183?si=opZroRvYa8unruNg" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="icon-small"> Team ABC Studios
+    </a>
+    <a href="https://www.instagram.com/we_media__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="icon-small"> WE Media
+    </a>
+    <a href="tel:+918184857257">
+      <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone" class="icon-small"> +91 8184857257
+    </a>
+    <a href="mailto:webyvenkat@gmail.com">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="icon-small"> webyvenkat@gmail.com
+    </a>
+  </div>
+</div>
+
+  <footer class="custom-footer">
+  <div class="footer-main">
+    <div class="footer-left">
+      <h3 class="footer-title">We by Venkat</h3>
+      <p class="footer-quote">Capturing events and making memories</p>
+    </div>
+    <div class="footer-right">
+      <div>webyvenkat@gmail.com</div>
+      <div>+91 8184857257</div>
+      <div>Hyderabad, India</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 We by Venkat. All rights reserved.
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
